@@ -9,3 +9,6 @@ add_subdirectory(leetcode/editor/cn/include)
 
 add_executable(algorithm main.cpp)
 
+
+add_executable(206-reverse-linked-list leetcode/editor/cn/206-reverse-linked-list.cpp)
+add_executable(25-reverse-nodes-in-k-group leetcode/editor/cn/25-reverse-nodes-in-k-group.cpp)

@@ -67,6 +67,22 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/24-swap-nodes-in-pairs.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/24-swap-nodes-in-pairs.cpp" />
+              <option name="questionId" value="24" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/25-reverse-nodes-in-k-group.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/25-reverse-nodes-in-k-group.cpp" />
+              <option name="questionId" value="25" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/283-move-zeroes.cpp">
           <value>
             <LeetcodeEditor>
@@ -120,6 +136,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/[2]add-two-numbers.cpp" />
               <option name="questionId" value="2" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 22-lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 22-lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof.cpp" />
+              <option name="questionId" value="100294" />
             </LeetcodeEditor>
           </value>
         </entry>

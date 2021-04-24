@@ -27,8 +27,36 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-
+        /**
+         * 迭代   时间o(n) 空间o(1)
+         */
+        ListNode* pre= nullptr;
+        ListNode* curr=head;
+        ListNode* next;
+        while (curr != nullptr) {
+            next = curr->next;
+            curr->next=pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
+        /**
+         * 递归    时间o(n) 空间o(n)
+         */
+//        if (head== nullptr||head->next== nullptr){
+//            return head;
+//        }
+//        ListNode *pre=reverseList(head->next);
+//        head->next->next=head;
+//        head->next= nullptr;
+//        return pre;
     }
+
+
+
+
+
+
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
@@ -36,5 +64,15 @@ public:
 int main()
 {
     Solution s;
+    ListNode *list,*head;
+    list=new ListNode(1);
+    head=list;
+
+    for (int i = 2; i < 6; ++i) {
+        ListNode* tmp=new ListNode(i);
+        head->next = tmp;
+        head = head->next;
+    }
+    s.reverseList(list);
     
 }

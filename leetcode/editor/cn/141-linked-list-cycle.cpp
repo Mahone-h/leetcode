@@ -80,7 +80,7 @@ public:
 //        }
 //        return false;
         /**
-         * 双指针
+         * 双指针 https://leetcode-cn.com/problems/linked-list-cycle/solution/yi-wen-gao-ding-chang-jian-de-lian-biao-wen-ti-h-2/
          */
         unordered_set<ListNode *> set;
         while(head!= nullptr){
