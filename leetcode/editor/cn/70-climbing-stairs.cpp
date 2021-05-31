@@ -31,6 +31,9 @@
 class Solution {
 public:
     int climbStairs(int n) {
+        /**
+         * 迭代
+         */
         if(n<=2){
             return n;
         }

@@ -20,3 +20,6 @@ add_executable(239-sliding-window-maximum leetcode/editor/cn/239-sliding-window-
 add_executable(42-trapping-rain-water leetcode/editor/cn/42-trapping-rain-water.cpp)
 add_executable(242-valid-anagram leetcode/editor/cn/242-valid-anagram.cpp)
 add_executable(49-group-anagrams leetcode/editor/cn/49-group-anagrams.cpp)
+add_executable(94-binary-tree-inorder-traversal leetcode/editor/cn/94-binary-tree-inorder-traversal.cpp)
+add_executable(297-serialize-and-deserialize-binary-tree leetcode/editor/cn/297-serialize-and-deserialize-binary-tree.cpp)
+add_executable(77-combinations leetcode/editor/cn/77-combinations.cpp)
