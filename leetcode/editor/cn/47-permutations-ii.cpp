@@ -46,10 +46,12 @@ public:
          */
          //set<int> unique;
         for (int i = 0; i < nums.size(); ++i) {
-            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-                continue;
-            }
             if (!used[i]) {
+                // !used[i - 1]前面的在用 并且 用现在的没事
+                // !used[i - 1]前面的没在用 和现在的相等 重复
+                if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                    continue;
+                }
                 //unique.emplace(nums[i]);
                 used[i] = true;
                 tmp.emplace_back(nums[i]);

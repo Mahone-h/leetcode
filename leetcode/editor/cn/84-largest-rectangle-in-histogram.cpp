@@ -54,7 +54,7 @@ public:
 //            }
 //        }
 //        return maxArea;
-        //暴力2_2 O(n^2)    枚举高 高度固定 向左右两边扩散 找>=当前高度的
+        //暴力2_2 O(n^2)    枚举高 高度固定 向左右两边扩散 找高度比当前高度小的
         /* int maxArea = 0;
          for (int i = 0; i < heights.size(); ++i) {
              // 枚举高
@@ -75,6 +75,7 @@ public:
         if (heights.size() == 0) return 0;
         if (heights.size() == 1) return heights[0];
         int ans = 0;
+        //类似 枚举高 高度固定 找宽
         // 先放入哨兵，在循环里就不用做非空判断 有了这两个柱形：
         //左边的柱形（第 1 个柱形）由于它一定比输入数组里任何一个元素小，它肯定不会出栈，因此栈一定不会为空；
         //右边的柱形（第 2 个柱形）也正是因为它一定比输入数组里任何一个元素小，它会让所有输入数组里的元素出栈（第 1 个哨兵元素除外）。
@@ -100,6 +101,6 @@ public:
 
 int main() {
     Solution s;
-    vector<int> vec={6,7,5,2,4,5,9,3};
+    vector<int> vec={2,1,5,6,2,3};
     s.largestRectangleArea(vec);
 }

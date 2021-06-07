@@ -52,7 +52,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    void reverse(vector<int>& nums,int start,int end){
+    void reverse(vector<int> &nums, int start, int end) {
         while (start < end) {
             swap(nums[start], nums[end]);
             start++;
@@ -60,19 +60,29 @@ public:
         }
     }
 
-    void rotate(vector<int>& nums, int k) {
+    void rotate(vector<int> &nums, int k) {
         /**
-         *  傻办法 超时
+         *  傻办法 挪K次。。超时
          */
-//        k = k % nums.size();
-//        int tmp;
-//        for (int i = 0; i < k; ++i) {
-//            tmp = nums[nums.size() - 1];
-//            for (int j = nums.size()-1; j >0; j--) {
-//                nums[j]=nums[j-1];
-//            }
-//            nums[0]=tmp;
-//        }
+        //k = k % nums.size();
+        //int tmp;
+        //for (int i = 0; i < k; ++i) {
+        //    tmp = nums[nums.size() - 1];
+        //    for (int j = nums.size() - 1; j > 0; j--) {
+        //        nums[j] = nums[j - 1];
+        //    }
+        //    nums[0] = tmp;
+        //}
+        /**
+         * 额外的数组
+         */
+        //    int n = nums.size();
+        //    vector<int> newArr(n);
+        //    for (int i = 0; i < n; ++i) {
+        //        newArr[(i + k) % n] = nums[i];
+        //    }
+        //    nums.assign(newArr.begin(), newArr.end());
+        //}
 
         /**
          * 数组翻转
@@ -82,15 +92,15 @@ public:
          */
         k %= nums.size();
         reverse(nums, 0, nums.size() - 1);
-        reverse(nums, 0, k-1);
+        reverse(nums, 0, k - 1);
         reverse(nums, k, nums.size() - 1);
     }
+
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    
+
 }

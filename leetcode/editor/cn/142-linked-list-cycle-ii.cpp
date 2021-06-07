@@ -83,6 +83,15 @@ public:
 //        }
 //        return nullptr;
 
+        /**
+         * 快慢指针   快在一圈内就能追上慢
+         * 快是慢的2倍  慢刚进圈  快已经走了一段
+         * slow * 2 = fast;
+            slow = a + b;
+            fast = a + b + c + b = a + 2*b + c;
+            (a + b)*2 = a + 2*b + c;
+            a = c;
+         */
         ListNode *fast,*slow;
         fast=head;
         slow=head;

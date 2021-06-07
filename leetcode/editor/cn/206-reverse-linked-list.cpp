@@ -30,26 +30,26 @@ public:
         /**
          * 迭代   时间o(n) 空间o(1)
          */
-        ListNode* pre= nullptr;
-        ListNode* curr=head;
-        ListNode* next;
-        while (curr != nullptr) {
-            next = curr->next;
-            curr->next=pre;
-            pre = curr;
-            curr = next;
-        }
-        return pre;
+        //ListNode* pre= nullptr;
+        //ListNode* curr=head;
+        //ListNode* next;
+        //while (curr != nullptr) {
+        //    next = curr->next;
+        //    curr->next=pre;
+        //    pre = curr;
+        //    curr = next;
+        //}
+        //return pre;
         /**
          * 递归    时间o(n) 空间o(n)
          */
-//        if (head== nullptr||head->next== nullptr){
-//            return head;
-//        }
-//        ListNode *pre=reverseList(head->next);
-//        head->next->next=head;
-//        head->next= nullptr;
-//        return pre;
+        if (head== nullptr||head->next== nullptr){
+            return head;
+        }
+        ListNode *pre=reverseList(head->next);
+        head->next->next=head;//pre 是头 要改变的是当前层的head->next 的
+        head->next= nullptr;
+        return pre;
     }
 
 

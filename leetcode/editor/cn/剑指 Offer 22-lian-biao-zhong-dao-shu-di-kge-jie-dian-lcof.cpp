@@ -30,7 +30,7 @@ public:
     ListNode* getKthFromEnd(ListNode* head, int k) {
         /**
          * 1.遍历 记录n  然后走n-k
-         * 2.快慢指针
+         * 2.快慢指针  快先走k  走到k为null
          */
         ListNode *fast=head,*slow=head;
         for (int i = 0; i < k; ++i) {

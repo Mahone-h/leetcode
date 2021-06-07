@@ -61,7 +61,7 @@
 class Solution {
 public:
     /**
-     * 通用解法   k相同的保留几个
+     * 通用解法    相同的保留k位
      * @param nums
      * @param k
      * @return

@@ -82,15 +82,19 @@ public:
         /**
          * 双指针 https://leetcode-cn.com/problems/linked-list-cycle/solution/yi-wen-gao-ding-chang-jian-de-lian-biao-wen-ti-h-2/
          */
-        unordered_set<ListNode *> set;
-        while(head!= nullptr){
-            if(set.count(head)){
-                return true;
-            }
-            set.emplace(head);
-            head = head->next;
+        if (head == nullptr || head->next == nullptr) {
+            return false;
         }
-        return false;
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (slow != fast) {
+            if (fast == nullptr || fast->next == nullptr) {
+                return false;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return true;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)

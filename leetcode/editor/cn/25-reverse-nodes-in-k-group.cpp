@@ -74,21 +74,21 @@
 
 class Solution {
 public:
-    ListNode* reverse(ListNode *head){
-        ListNode *pre= nullptr;
-        ListNode *curr=head;
+    ListNode *reverse(ListNode *head) {
+        ListNode *pre = nullptr;
+        ListNode *curr = head;
         ListNode *next;
         while (curr != nullptr) {
             next = curr->next;
-            curr->next=pre;
-            pre=curr;
-            curr=next;
+            curr->next = pre;
+            pre = curr;
+            curr = next;
         }
         return pre;
     }
 
 
-    ListNode* reverseKGroup(ListNode* head, int k) {
+    ListNode *reverseKGroup(ListNode *head, int k) {
         /**
          * 递归
          */
@@ -121,10 +121,10 @@ public:
          * 翻转start - end
          */
         ListNode *hair = new ListNode;
-        ListNode *pre,*next,*start,*end;
-        pre=hair;
+        ListNode *pre, *next, *start, *end;
+        pre = hair;
         pre->next = head;
-        end=pre;
+        end = pre;
         while (end != nullptr) {
             for (int i = 0; i < k; ++i) {
                 end = end->next;
@@ -135,10 +135,10 @@ public:
             start = pre->next;
             next = end->next;
             end->next = nullptr;
-            pre->next=reverse(start);
+            pre->next = reverse(start);
             start->next = next;
             pre = start;
-            end=pre;
+            end = pre;
         }
         return hair->next;
     }
@@ -146,22 +146,21 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    ListNode *list,*head;
-    list=new ListNode(1);
-    head=list;
+    ListNode *list, *head;
+    list = new ListNode(1);
+    head = list;
 
     for (int i = 2; i < 6; ++i) {
-        ListNode* tmp=new ListNode(i);
+        ListNode *tmp = new ListNode(i);
         head->next = tmp;
         head = head->next;
     }
-    list=s.reverseKGroup(list, 2);
+    list = s.reverseKGroup(list, 2);
     while (list != nullptr) {
-        cout << list->val<< endl;
+        cout << list->val << endl;
         list = list->next;
     }
-    
+
 }

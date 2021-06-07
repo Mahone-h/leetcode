@@ -20,13 +20,16 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) {
-        int j=0;
-        for(int i=0;i<nums.size();i++){
-            if(nums[i]!=0){
-                if(i>j){
-                    nums[j]=nums[i];
-                    nums[i]=0;
+    void moveZeroes(vector<int> &nums) {
+        /**
+         * 双指针 把不是0的挪前面
+         */
+        int j = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != 0) {
+                if (i > j) {
+                    nums[j] = nums[i];
+                    nums[i] = 0;
                 }
                 j++;
             }
@@ -36,8 +39,7 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    
+
 }

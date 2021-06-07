@@ -68,7 +68,7 @@ public:
 //        newHead->next = head;
 //        return newHead;
         /**
-         * 迭代
+         * 迭代 添加一个辅助
          */
         ListNode *tmp = new ListNode;
         tmp->next = head;
