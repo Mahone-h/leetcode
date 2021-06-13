@@ -39,21 +39,23 @@ class Solution {
 public:
     int trap(vector<int> &height) {
         //单调递减栈  84是单调增栈
-//        stack<int> st;
-//        int ans = 0;
-//        for (int i = 0; i < height.size(); ++i) {
-//            while (!st.empty() && height[st.top()] < height[i]) {
-//                int cur = st.top();
-//                st.pop();
-//                if (st.empty()) {
-//                    break;
-//                }
-//                int h = min(height[i], height[st.top()]) - height[cur];
-//                ans += (i - st.top() - 1) * h;
-//            }
-//            st.push(i);
-//        }
-//        return ans;
+        stack<int> st;
+        int ans = 0;
+        for (int i = 0; i < height.size(); ++i) {
+            while (!st.empty() && height[st.top()] < height[i]) {
+                int cur = st.top();
+                st.pop();
+                if (st.empty()) {
+                    break;
+                }
+                int h = min(height[i], height[st.top()]) - height[cur];
+                ans += (i - st.top() - 1) * h;
+            }
+            st.push(i);
+        }
+        return ans;
+
+
         //暴力  按列求
 //        if (height.size() < 3) {
 //            return 0;
@@ -80,25 +82,25 @@ public:
 //        }
 //        return sum;
         //按列优化
-        if (height.size() < 3) {
-            return 0;
-        }
-        int sum = 0;
-        vector<int> max_left(height.size());
-        vector<int> max_right(height.size());
-        for (int i = 1; i < height.size() - 1; ++i) {
-            max_left[i] = max(max_left[i - 1], height[i-1]);
-        }
-        for (int i = height.size()-2; i >=0; i--) {
-            max_right[i] = max(max_right[i + 1], height[i+1]);
-        }
-        for (int i = 0; i < height.size() - 1; ++i) {
-            int min_h = min(max_left[i], max_right[i]);
-            if (min_h > height[i]) {
-                sum += (min_h - height[i]);
-            }
-        }
-        return sum;
+        //if (height.size() < 3) {
+        //    return 0;
+        //}
+        //int sum = 0;
+        //vector<int> max_left(height.size());
+        //vector<int> max_right(height.size());
+        //for (int i = 1; i < height.size() - 1; ++i) {
+        //    max_left[i] = max(max_left[i - 1], height[i-1]);
+        //}
+        //for (int i = height.size()-2; i >=0; i--) {
+        //    max_right[i] = max(max_right[i + 1], height[i+1]);
+        //}
+        //for (int i = 1; i < height.size() - 1; ++i) {
+        //    int min_h = min(max_left[i], max_right[i]);
+        //    if (min_h > height[i]) {
+        //        sum += (min_h - height[i]);
+        //    }
+        //}
+        //return sum;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)

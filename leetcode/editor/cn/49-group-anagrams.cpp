@@ -29,18 +29,33 @@ public:
         //暴力 排序 判断set里面有没有
         //时间复杂度：(nklogk)，其中 n 是 strs中的字符串的数量，k是strs 中的字符串的的最大长度
         //空间复杂度：O(nk)O(nk)
-        map<string,vector<string>> res;
-        vector<vector<string>> re;
-        string sorted;
-        for (int i = 0; i < strs.size(); ++i) {
-            sorted = strs[i];
-            sort(sorted.begin(),sorted.end());
-            res[sorted].emplace_back(strs[i]);
+        //map<string,vector<string>> res;
+        //vector<vector<string>> re;
+        //string sorted;
+        //for (int i = 0; i < strs.size(); ++i) {
+        //    sorted = strs[i];
+        //    sort(sorted.begin(),sorted.end());
+        //    res[sorted].emplace_back(strs[i]);
+        //}
+        //for (auto iter = res.begin(); iter != res.end(); ++iter) {
+        //    re.emplace_back(iter->second);
+        //}
+        //return re;
+        /**
+         * 频次转string 做key
+         */
+         vector<vector<string>> res;
+         unordered_map<string,vector<string>> map;
+        for (string str:strs) {
+            string tmp(26, '0');
+            for(char ch:str) tmp[ch - 'a']++;
+            map[tmp].emplace_back(str);
         }
-        for (auto iter = res.begin(); iter != res.end(); ++iter) {
-            re.emplace_back(iter->second);
+        for (auto e:map) {
+            res.emplace_back(e.second);
         }
-        return re;
+        return res;
+
 
     }
 };

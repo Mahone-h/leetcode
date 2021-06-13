@@ -101,6 +101,6 @@ public:
 
 int main() {
     Solution s;
-    vector<int> vec={2,1,5,6,2,3};
+    vector<int> vec={2,1,5,5,2,3};
     s.largestRectangleArea(vec);
 }

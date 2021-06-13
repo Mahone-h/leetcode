@@ -85,6 +85,7 @@ public:
 //        vector<int> res = {q.top().first};
 //        for (int i = k; i < nums.size(); ++i) {
 //            q.emplace(nums[i], i);
+              //不在窗口中的移除
 //            while (q.top().second <= i - k) {
 //                q.pop();
 //            }
@@ -95,19 +96,27 @@ public:
         if (nums.empty() || nums.size() < 2) {
             return nums;
         }
+        // 双向队列 保存当前窗口最大值的数组位置 保证队列中数组位置的数值按从大到小排序
         deque<int> dq;
         vector<int> ans;
-        for (int i = 0; i < nums.size(); ++i) {
+        //先构建窗口
+        for (int i = 0; i < k; ++i) {
             while (!dq.empty() && nums[dq.back()] < nums[i]) {
                 dq.pop_back();
             }
             dq.emplace_back(i);
-            if (dq.front() <= i - k) {
+        }
+        ans.emplace_back(nums[dq.front()]);
+        for (int i = k; i < nums.size(); ++i) {
+            // 保证从大到小 如果前面数小则需要依次弹出，直至满足要求
+            if (!dq.empty() &&dq.front() <= i - k) {
                 dq.pop_front();
             }
-            if (i >= k-1) {
-                ans.emplace_back(nums[dq.front()]);
+            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+                dq.pop_back();
             }
+            dq.emplace_back(i);
+            ans.emplace_back(nums[dq.front()]);
         }
         return ans;
     }

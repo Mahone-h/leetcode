@@ -45,6 +45,11 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class MyCircularDeque {
 public:
+    /**
+     * 一个环
+     * rear指向一个空位置
+     * (rear+1)%capacity==front 判断是否满
+     */
     int capacity;
     vector<int> arr;
     int front;
