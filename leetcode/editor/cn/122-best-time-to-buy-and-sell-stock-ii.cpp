@@ -49,16 +49,26 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        if (prices.size()<=1) {
-            return 0;
+        /** 贪心
+         */
+        //if (prices.size()<=1) {
+        //    return 0;
+        //}
+        //int res=0;
+        //for (int i = 1; i < prices.size(); ++i) {
+        //    if (prices[i] > prices[i - 1]) {
+        //        res += prices[i] - prices[i - 1];
+        //    }
+        //}
+        //return res;
+        /** dp*/
+        int dp_i_0 = 0, dp_i_1 = INT_MIN,temp;
+        for (int i = 0; i < prices.size(); ++i) {
+            temp = dp_i_0;
+            dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = max(dp_i_1, temp-prices[i]);
         }
-        int res=0;
-        for (int i = 1; i < prices.size(); ++i) {
-            if (prices[i] > prices[i - 1]) {
-                res += prices[i] - prices[i - 1];
-            }
-        }
-        return res;
+        return dp_i_0;
 
     }
 };
