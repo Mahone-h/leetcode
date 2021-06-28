@@ -40,15 +40,31 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    int totalNQueens(int n) {
 
+    void DFS(int &n, int row, int col, int ld, int rd, int &res) {
+        if (row >= n) {
+            res++;
+            return;
+        }
+        int pos = (~(col | ld | rd)) & ((1 << n) - 1);  //获取所有空位
+        while (pos > 0) {
+            int p = pos & (-pos);  //最后一个1   例：1010 返回  0010
+            pos &= (pos - 1);   //清零最低位的 1
+            DFS(n, row + 1, col | p, (ld | p) << 1, (rd | p) >> 1, res);
+        }
+    }
+
+
+    int totalNQueens(int n) {
+        int res = 0;
+        DFS(n, 0, 0, 0, 0, res);
+        return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    
+
 }

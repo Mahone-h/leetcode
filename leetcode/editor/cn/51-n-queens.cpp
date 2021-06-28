@@ -58,15 +58,50 @@ public:
                 tmp[row][col] = '.';
             }
         }
+    }
+    int getPos(int n) {
+        int count = 0;
+        while (n != 1) {
+            n = n >> 1;
+            count++;
+        }
+        return count;
+    }
 
+    void DFS(int n, int row, int col, int ld, int rd, vector<vector<string>> &res, vector<string> tmp) {
+        if (row == n) {
+            res.emplace_back(tmp);
+            return;
+        }
+        int blank = (~(col | ld | rd)) & ((1 << n) - 1);  //获取所有空位
+        while (blank > 0) {
+            int p = blank & (-blank);  //最后一个1   例：1010 返回  0010
+            int pos = getPos(p);
+            blank &= (blank - 1);
+            tmp[row][pos] = 'Q';
+            DFS(n, row + 1, col | p, (ld | p) << 1, (rd | p) >> 1, res, tmp);
+            tmp[row][pos] = '.';
+        }
     }
 
     vector<vector<string>> solveNQueens(int n) {
+        /**
+         *  row col n
+         *  斜线两个方向有 2*n-1
+         *  45°   row+col 相等
+         *  135°  row-col 相等
+         *  用set 也可以 直接
+         *  https://leetcode.com/problems/n-queens/discuss/19808/Accepted-4ms-c%2B%2B-solution-use-backtracking-and-bitmask-easy-understand.
+         */
         vector<vector<string>> res;
         vector<string> tmp(n, string(n, '.'));
         vector<int> cols(n, 1), xy_dif(2 * n - 1, 1), xy_sum(2 * n - 1, 1);
         backtrack(n,0,cols,xy_dif,xy_sum,res,tmp);
         return res;
+        //vector<vector<string>> res;
+        //vector<string> tmp(n, string(n, '.'));
+        //DFS(n, 0, 0, 0, 0, res, tmp);
+        //return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
@@ -74,5 +109,7 @@ public:
 
 int main() {
     Solution s;
+    cout << s.getPos(0b0100) << endl;
+
 
 }

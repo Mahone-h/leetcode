@@ -59,67 +59,122 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        unordered_set<string> wordSet(wordList.begin(),wordList.end());
+    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string> &wordList) {
+        /**单向BFS   */
+        //unordered_set<string> dict(wordList.begin(), wordList.end());
+        //vector<vector<string>> res;
+        //if (dict.empty() || dict.find(endWord) == dict.end()) {
+        //    return res;
+        //}
+        //queue<string> queue;
+        //queue.emplace(beginWord);
+        //dict.erase(beginWord);
+        //unordered_map<string, unordered_set<string>> bfsMap;
+        ////bfs 找所有顶点相邻
+        //int ifFound = 0;
+        //while (!queue.empty()) {
+        //    int n = queue.size();
+        //    unordered_set<string> subSet;
+        //    while (n--) {
+        //        string cur = queue.front();
+        //        string original = cur;
+        //        queue.pop();
+        //        for (int i = 0; i < cur.size(); ++i) {
+        //            char tmp = cur[i];
+        //            for (char j = 'a'; j <= 'z'; ++j) {
+        //                if (j == tmp) {
+        //                    continue;
+        //                }
+        //                cur[i] = j;
+        //                if (dict.count(cur)) {
+        //                    if (cur == endWord) {
+        //                        ifFound = 1;
+        //                    } else {
+        //                        queue.push(cur);
+        //                        subSet.emplace(cur);
+        //                    }
+        //                    bfsMap[original].emplace(cur);
+        //                }
+        //            }
+        //            cur[i] = tmp;
+        //        }
+        //    }
+        //    for (const string &tmp:subSet) {//这层找到的就删掉。  防止下层重复  不能在上面删除
+        //        dict.erase(tmp);
+        //    }
+        //    if (ifFound == 1) {
+        //        break;
+        //    }
+        //}
+        //if(ifFound){
+        //vector<string> path = {beginWord};
+        //dfs(res, beginWord, endWord, bfsMap, path);
+        //}
+
+        //return res;
+        /**双向BFS*/
         vector<vector<string>> res;
-        if (wordSet.empty() || wordSet.find(endWord) == wordSet.end()) {
+        unordered_set<string> dict(wordList.begin(), wordList.end());
+        if (dict.count(endWord) == 0) {
             return res;
         }
-        queue<string> queue;
-        queue.emplace(beginWord);
-        wordSet.erase(beginWord);
-        unordered_map<string,unordered_set<string>> bfsMap;
-        //bfs 找所有顶点相邻
-        int ifFound=0;
-        while (!queue.empty()) {
-            int n = queue.size();
-            unordered_set<string> subSet;
-            while (n--) {
-                string cur = queue.front();
-                string original=cur;
-                queue.pop();
+        dict.erase(beginWord);
+        dict.erase(endWord);
+        unordered_set<string> begin{beginWord}, end{endWord};
+        unordered_map<string, unordered_set<string>> next;
+        bool reversed = false, found = false;
+        while (!begin.empty()) {
+            unordered_set<string> q;
+            for (const string &cur: begin) {
+                string tmp = cur;
                 for (int i = 0; i < cur.size(); ++i) {
-                    char tmp = cur[i];
+                    char ch = tmp[i];
                     for (char j = 'a'; j <= 'z'; ++j) {
-                        if (j == tmp) {
+                        tmp[i] = j;
+                        if (tmp == cur) {
                             continue;
                         }
-                        cur[i] = j;
-                        if (wordSet.count(cur)) {
-                            if (cur == endWord) {
-                                ifFound=1;
-                            } else{
-                                queue.push(cur);
-                                subSet.emplace(cur);
-                            }
-                            bfsMap[original].emplace(cur);
+                        if (end.count(tmp)) { //end中包含就说明相遇了
+                            reversed ? next[tmp].emplace(cur) : next[cur].emplace(tmp);
+                            found = true;
+                        }
+                        if (dict.count(tmp)) {
+                            reversed ? next[tmp].emplace(cur) : next[cur].emplace(tmp);
+                            q.emplace(tmp);
                         }
                     }
-                    cur[i]=tmp;
+                    tmp[i] = ch;
                 }
             }
-            for (string tmp:subSet) {
-                wordSet.erase(tmp);
-            }
-            if (ifFound == 1) {
+            if (found) {
                 break;
             }
+            for (string s:q) {
+                dict.erase(s);
+            }
+            if (q.size() < end.size()) {
+                begin = q;
+            } else {
+                reversed = !reversed;
+                begin = end;
+                end = q;
+            }
         }
-        vector<string> path={beginWord};
-        dfs(res, beginWord, endWord, bfsMap,path);
+        if (found) {
+            vector<string> path = {beginWord};
+            dfs(res, beginWord, endWord, next, path);
+        }
         return res;
     }
 
-    void dfs(vector<vector<string>>& res,string beginWord,string endWord,unordered_map<string,unordered_set<string>>& map,vector<string> &path){
+    void dfs(vector<vector<string>> &res, string beginWord, string endWord,
+             unordered_map<string, unordered_set<string>> &map, vector<string> &path) {
         if (beginWord == endWord) {
             res.emplace_back(path);
             return;
         }
-        //dfs过程中没找到到
-        if (map.count(beginWord) == 0) {
-            return;
-        }
-        for (string tmp:map.find(beginWord)->second) {
+        //dfs过程中没找到
+        for (const string &tmp:map[beginWord]) {
             path.emplace_back(tmp);
             dfs(res, tmp, endWord, map, path);
             path.pop_back();
@@ -129,9 +184,8 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    vector<string> input = {"ted","tex","red","tax","tad","den","rex","pee"};
-    s.findLadders("red", "tax", input);
+    vector<string> input = {"hot", "dot", "dog", "lot", "log", "cog"};
+    s.findLadders("hit", "cog", input);
 }

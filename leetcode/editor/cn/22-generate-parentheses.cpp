@@ -34,24 +34,26 @@ class Solution {
 public:
     vector<string> res;
     vector<string> generateParenthesis(int n) {
+        /**DFS*/
         vector<string> result;
         if (n < 1) return result;
         string tmp;
         collect(result, tmp, n, n);
         return result;
     }
-    void collect(vector<string> &result, string &tmp, int left, int right) {
-        if (left > right || left < 0) return;
+    void collect(vector<string> &result, string tmp, int left, int right) {
         if (left + right == 0) {
             result.push_back(tmp);
             return;
         }
-        tmp.push_back('(');
-        collect(result, tmp, left - 1, right);
-        tmp.pop_back();
-        tmp.push_back(')');
-        collect(result, tmp, left, right - 1);
-        tmp.pop_back();
+
+        if (left > 0) {
+            collect(result, tmp+"(", left - 1, right);
+        }
+        if (right > 0 && left < right) {
+            collect(result, tmp+")", left, right - 1);
+        }
+
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)

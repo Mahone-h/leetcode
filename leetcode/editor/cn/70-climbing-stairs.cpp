@@ -34,16 +34,30 @@ public:
         /**
          * 迭代
          */
-        if(n<=2){
-            return n;
+        //if(n<=2){
+        //    return n;
+        //}
+        //int a=1,b=2,c=3;
+        //for(int i=3;i<=n;i++){
+        //    c=a+b;
+        //    a=b;
+        //    b=c;
+        //}
+        //return c;
+
+        vector<int> memo(n+1);
+        return dfs(n, memo);
+
+    }
+
+    int dfs(int n,vector<int> &memo){
+        if (n == 0 || n == 1) {
+            return 1;
         }
-        int a=1,b=2,c=3;
-        for(int i=3;i<=n;i++){
-            c=a+b;
-            a=b;
-            b=c;
+        if (memo[n] == 0) {
+            memo[n] = dfs(n - 1, memo) + dfs(n - 2, memo);
         }
-        return c;
+        return memo[n];
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)

@@ -3,8 +3,16 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <bitset>
+#include "leetcode/editor/cn/include/headers.h"
+#include <ctime>
 
 using namespace std;
+
+void BinaryBitset(int n) {
+    cout << bitset<8>(n) << endl;
+}
+
 
 
 
@@ -49,43 +57,8 @@ int main() {
     //        return 0;
     //    }
     //}
-    string s;
-    getline(cin, s);
-    string flag="o";
-    int pos=0,last=0;
-    vector<string> strList;
-    while((pos=s.find(flag,pos))!=string::npos)
-    {
-        strList.emplace_back(s.substr(last, pos+1 - last));
-        pos++;
-        last = pos;
-    }
-    if (strList.size() % 2 == 0) {
-        cout << s.size()<< endl;
-        return s.size();
-    }
-    if (last != s.size()-1&&!s.empty()) {
-        strList.emplace_back(s.substr(last, s.size() - 1) + strList[0]);
-    }
-
-    vector<int> lenList;
-    for (int i = 0; i < strList.size(); ++i) {
-        lenList.emplace_back(strList[i].size());
-    }
-    sort(lenList.begin(), lenList.end());
-    int ans = 0;
-    for (int i = 1; i < lenList.size(); ++i) {
-        ans += lenList[i];
-    }
-    ans += (lenList[0] - 1);
-    cout <<"---"<< ans<< endl;
-    return ans;
-
-
-
-
-
-
-
+    cout << 5/2<< endl;
+    cout << 5/2.0<< endl;
     return 0;
 }
+

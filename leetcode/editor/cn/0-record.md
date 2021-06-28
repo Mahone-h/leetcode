@@ -49,6 +49,7 @@ https://leetcode-cn.com/problems/subsets/solution/c-zong-jie-liao-hui-su-wen-ti-
 [DFS 网格类问题](https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/)
 200-岛屿数量 463-岛屿的周长 695-岛屿的最大面积 827-最大人工岛(并查集 TODO)
 433-最小基因变化 22-括号生成 515-在每个树行中找最大值
+双向BFS
 127-单词接龙*  126-单词接龙 II*   529-扫雷游戏
 
 
@@ -106,8 +107,21 @@ https://mp.weixin.qq.com/s/xmgK7SrTnFIM3Owpk-emmg
 Trie:   208-实现 Trie (前缀树)   212-单词搜索II
 并查集:547-省份数量(朋友圈) 200-岛屿数量 130-被围绕的区域
 
+#12.高级搜索
+双向BFS   启发式搜索
+36-有效的数独  37-解数独
+127-单词接龙*  126-单词接龙 II*   433-最小基因变化
 
+A* 启发式搜索:
+1091-二进制矩阵中的最短路径  773-滑动谜题 37-解数独
+#13.AVL 红黑树
 
+#14.位运算
+191-位1的个数  231-2 的幂   190-颠倒二进制位 51-N 皇后 52-N皇后 II
+338-比特位计数
+
+#15.布隆过滤器  LRU
+146-LRU 缓存机制
 
 ##16.排序
 148-排序链表  179-最大数
