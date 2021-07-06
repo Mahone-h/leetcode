@@ -49,7 +49,20 @@
 class Solution {
 public:
     string largestNumber(vector<int>& nums) {
-
+        //比较高位
+        vector<string> strs;
+        for (int &num:nums) {
+            strs.emplace_back(to_string(num));
+        }
+        sort(strs.begin(), strs.end(), [](string &s1,string &s2){return s1+s2 > s2+s1;});
+        string res;
+        for (string &str:strs) {
+            res+=str;
+        }
+        if (res[0] == '0') {
+            return "0";
+        }
+        return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
@@ -58,5 +71,6 @@ public:
 int main()
 {
     Solution s;
-    
+    vector<int> tmp={10,2};
+    cout <<     s.largestNumber(tmp)    << endl;
 }

@@ -44,9 +44,29 @@ public:
         //    b=c;
         //}
         //return c;
+        /**DFS*/
+        //vector<int> memo(n+1);
+        //return dfs(n, memo);
 
-        vector<int> memo(n+1);
-        return dfs(n, memo);
+        /** DP
+         * 变种3 不能走相同步数  x1, x2, …, xm 步
+         * 升维dp[i][k]  k表示最后一步通过几步走过来的
+         * a[i][x[j]]+=a[i-x[j]][x[1...m]]   过程中排除   a[i-x[j]][x[j]]
+         * * */
+        if (n <= 1) return n;
+        vector<int> dp(n, 0);
+        dp[0] = 1;
+        dp[1] = 2;
+        //dp[2]=3  变种1 +个3
+        for (int i = 2; i < n; ++i) {
+            dp[n] = dp[i - 1] + dp[i - 2];
+            //变种2   x1, x2, …, xm 步   多种步可以走
+            //for (int j = 0; j < m; ++j) {
+            //    i-x[j] >=0;
+            //    dp[n] += dp[i - x[j]];
+            //}
+        }
+        return dp[n - 1];
 
     }
 

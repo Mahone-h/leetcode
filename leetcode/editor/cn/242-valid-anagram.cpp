@@ -37,7 +37,7 @@ public:
         return s == t;*/
 
         //hash
-/*        int freq[26] {};
+        int freq[26]{};  //==int freq[26] ={0};
         for (char ch : s) ++freq[ch - 'a'];
         for (char ch : t) --freq[ch - 'a'];
         for (int i = 0; i < 26; ++i) {
@@ -45,10 +45,10 @@ public:
                 return false;
             }
         }
-//      return  all_of(begin(freq), end(freq), [](int x) { return x == 0; });
-        return true;*/
+      //return  all_of(begin(freq), end(freq), [](int x) { return x == 0; });
+        return true;
 
-        if (s.length() != t.length()) {
+/*        if (s.length() != t.length()) {
             return false;
         }
         unordered_map<char, int> table;
@@ -69,7 +69,7 @@ public:
         }
         return true;
         //需要c++ 17
-//        return unordered_multiset(begin(s), end(s)) == unordered_multiset(begin(t), end(t));
+//        return unordered_multiset(begin(s), end(s)) == unordered_multiset(begin(t), end(t));*/
 
     }
 };

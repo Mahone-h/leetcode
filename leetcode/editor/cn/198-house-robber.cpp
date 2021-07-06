@@ -49,9 +49,10 @@ public:
          * a[i][1]=a[i-1][0]+nums[i]
          *
          * 第二种思路
-         * a[i]   0...i nums[i]必偷
+         *   dp[i] 表示前 i 间房屋能偷窃到的最高总金额
          * a. sub problems
          * b. DP array f[i] =max(a[i-1],a[i-2]+nums[i])
+         *  i-1 偷或者i偷
          * c. DP 方程
          */
         //if (nums.empty()) {
@@ -69,6 +70,8 @@ public:
         //    res = max(res, dp[i]);
         //}
         //return res;
+
+        //DP array f[i] =max(a[i-1],a[i-2]+nums[i])
         if (nums.empty()) {
             return 0;
         }

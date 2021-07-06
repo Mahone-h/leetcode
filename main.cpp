@@ -57,8 +57,11 @@ int main() {
     //        return 0;
     //    }
     //}
-    cout << 5/2<< endl;
-    cout << 5/2.0<< endl;
+
+    string s = "babad";
+    cout << s.substr(1,5)<< endl;
+
+
     return 0;
 }
 

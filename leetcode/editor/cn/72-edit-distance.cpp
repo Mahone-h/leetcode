@@ -54,14 +54,46 @@ using namespace std;
 class Solution {
 public:
     int minDistance(string word1, string word2) {
+        //dp[i][j]   word1 substr(0...i) 到 word2 substr(0...j) 之间的编辑距离
+        //word1[i] == word2[j]，dp[i][j] = dp[i-1][j-1]；
+        //word1[i] != word2[j]，dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
+        //其中，dp[i-1][j-1]+1 表示替换操作，dp[i-1][j]+1 表示删除操作，dp[i][j-1]+1 表示插入操作。
+
+        /**
+         *  w1   ....x
+         *  w2    ...y
+         *  word1[i - 1] == word2[j - 1]   dp[i][j] = dp[i - 1][j - 1]  相同的就不用考虑了
+         *
+         *  edit(i,j)= min(
+         *  edit[i-1][j-1],      x改成y
+         *  edit[i-1][j],        x删掉
+         *  edit[i][j-1]) + 1    y删掉
+         * */
+
+        //https://leetcode-cn.com/problems/edit-distance/solution/edit-distance-by-ikaruga/
+        vector<vector<int>> dp(word1.size() + 1, vector<int>(word2.size() + 1, 0));
+        for (int i = 1; i < dp.size(); ++i) {
+            dp[i][0] = i;
+        }
+        for (int j = 1; j < dp[0].size(); ++j) {
+            dp[0][j] = j;
+        }
+        //word1[i - 1] == word2[j - 1]   对应dp里面的ij 下标
+        for (int i = 1; i < dp.size(); ++i) {
+            for (int j = 1; j < dp[0].size(); ++j) {
+                if (word1[i - 1] == word2[j - 1]) dp[i][j] = dp[i - 1][j - 1];
+                else dp[i][j] = min({dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j]}) + 1;
+            }
+        }
+        return dp.back().back();
+
 
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-  
+    cout << s.minDistance("horse", "ros") << endl;
 }

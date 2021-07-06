@@ -53,6 +53,10 @@ using namespace std;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
+    /**
+     * dp[i][j] = dp[i-1][j-1] + 1 (if s1[i-1] == s2[j-1])
+        else dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+     */
     int longestCommonSubsequence(string text1, string text2) {
         int m = text1.size();
         int n = text2.size();
