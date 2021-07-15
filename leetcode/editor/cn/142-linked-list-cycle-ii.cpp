@@ -99,7 +99,7 @@ public:
             slow = slow->next;
             fast = fast->next->next;
             if (slow == fast) {
-                fast=head;
+                fast=head;   //相遇之后快从头走！
                 while (fast != slow) {
                     fast = fast->next;
                     slow = slow->next;

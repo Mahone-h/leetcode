@@ -13,9 +13,50 @@ void BinaryBitset(int n) {
     cout << bitset<8>(n) << endl;
 }
 
+class A {
+public:
+    static int aa;
+
+    virtual void foo() {
+        cout << "A::foo() is called" << endl;
+    }
+};
+
+int A::aa = 5;
+
+class B : public A {
+public:
+    void foo() {
+        cout << "B::foo() is called" << endl;
+    }
+};
+
+class Point {
+public:
+    static void init() {
+        //a=0;//非静态成员引用 错误
+        //b=0;//非静态成员引用 错误
+        c = 0;
+    }
+
+    void output() {
+        init();
+        c = 200;
+    }
+
+private:
+    int a;
+    int b;
+    static int c;
+};
+
+int Point::c = 100; //静态成员变量必须初始化
 
 
 
+void test(int *nums) {
+    cout << sizeof(nums) << endl;
+}
 
 int main() {
     //import java.util.*;
@@ -58,8 +99,6 @@ int main() {
     //    }
     //}
 
-    string s = "babad";
-    cout << s.substr(1,5)<< endl;
 
 
     return 0;

@@ -65,6 +65,9 @@ public:
         //return res;
         /**
          * 夹逼 排序加双指针
+         *
+         * i+l+r=0
+         * l=i+1  r=nums.size-1
          */
 
         sort(nums.begin(), nums.end());
@@ -75,7 +78,7 @@ public:
             if (nums[i] > 0) {
                 break;
             }
-            if (i > 0 && nums[i] == nums[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1]) {//相等
                 continue;
             }
             l = i + 1;

@@ -47,6 +47,10 @@
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
+        /**
+         * 判断会不会进位
+         * 有进位就得一直+
+         */
         for (int i = digits.size()-1; i >= 0 ; i--) {
             digits[i]++;
             digits[i] = digits % 10;

@@ -54,6 +54,9 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
+        /**
+         * 夹逼  两边向中间走
+         */
         int maxS = 0,minHeight,area;
         for (int i = 0,j=height.size()-1; i < j; ) {
             minHeight = height[i] < height[j] ? height[i++] : height[j--];

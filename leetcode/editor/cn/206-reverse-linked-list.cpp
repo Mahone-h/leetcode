@@ -42,6 +42,7 @@ public:
         //return pre;
         /**
          * 递归    时间o(n) 空间o(n)
+         * https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
          */
         if (head== nullptr||head->next== nullptr){
             return head;

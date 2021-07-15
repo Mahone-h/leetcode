@@ -49,7 +49,7 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         //两遍hash
-        //一遍hash
+        //一遍hash   边找边加
         unordered_map<int,int> map; //val pos
         for(int i = 0;i<nums.size();i++){
             auto it=map.find(target-nums[i]);

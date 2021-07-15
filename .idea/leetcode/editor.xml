@@ -307,6 +307,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/160-intersection-of-two-linked-lists.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/160-intersection-of-two-linked-lists.cpp" />
+              <option name="questionId" value="160" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/169-majority-element.cpp">
           <value>
             <LeetcodeEditor>
@@ -328,6 +336,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/179-largest-number.cpp" />
               <option name="questionId" value="179" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/18-4sum.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/18-4sum.cpp" />
+              <option name="questionId" value="18" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -539,6 +555,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/27-remove-element.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/27-remove-element.cpp" />
+              <option name="questionId" value="27" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/279-perfect-squares.cpp">
           <value>
             <LeetcodeEditor>
@@ -656,6 +680,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/344-reverse-string.cpp" />
               <option name="questionId" value="344" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/349-intersection-of-two-arrays.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/349-intersection-of-two-arrays.cpp" />
+              <option name="questionId" value="349" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -779,6 +811,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/454-4sum-ii.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/454-4sum-ii.cpp" />
+              <option name="questionId" value="454" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/455-assign-cookies.cpp">
           <value>
             <LeetcodeEditor>
@@ -899,6 +939,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/54-spiral-matrix.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/54-spiral-matrix.cpp" />
+              <option name="questionId" value="54" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/541-reverse-string-ii.cpp">
           <value>
             <LeetcodeEditor>
@@ -976,6 +1024,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/589-n-ary-tree-preorder-traversal.cpp" />
               <option name="questionId" value="775" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/59-spiral-matrix-ii.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/59-spiral-matrix-ii.cpp" />
+              <option name="questionId" value="59" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -1283,11 +1339,27 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/93-restore-ip-addresses.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/93-restore-ip-addresses.cpp" />
+              <option name="questionId" value="93" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/94-binary-tree-inorder-traversal.cpp">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/94-binary-tree-inorder-traversal.cpp" />
               <option name="questionId" value="94" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/977-squares-of-a-sorted-array.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/977-squares-of-a-sorted-array.cpp" />
+              <option name="questionId" value="1019" />
             </LeetcodeEditor>
           </value>
         </entry>

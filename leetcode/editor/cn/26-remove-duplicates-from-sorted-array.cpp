@@ -62,6 +62,9 @@ class Solution {
 public:
     /**
      * 通用解法    相同的保留k位
+     * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/solution/shua-chuan-lc-jian-ji-shuang-zhi-zhen-ji-2eg8/
+     * 由于是保留 k 个相同数字，对于前 k 个数字，我们可以直接保留。
+     * 对于后面的任意数字，能够保留的前提是：与当前写入的位置前面的第 k 个元素进行比较，不相同则保留。
      * @param nums
      * @param k
      * @return
@@ -88,7 +91,7 @@ public:
 //            j++;
 //        }
 //        return i;
-        return work(nums, 1);
+        return work(nums, 2);
     }
 
 };
@@ -97,10 +100,10 @@ public:
 
 int main() {
     Solution s;
-    vector<int> nums={0,0,1,1,1,2,2,3,3,4};
+    vector<int> nums={0,0,0,1,1,1,2,2,3,3,4};
 
     int j = s.removeDuplicates(nums);
     for (int i = 0; i < j; ++i) {
-        cout << nums[i] << endl;
+        cout << nums[i];
     }
 }

@@ -117,7 +117,7 @@ public:
         /**
          * 迭代  1->2->3->4->5
          * pre next
-         * pre0  start 1->2 end  next 3
+         * pre 0  start 1->2 end  next 3
          * 翻转start - end
          */
         ListNode *hair = new ListNode;

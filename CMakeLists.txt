@@ -73,3 +73,6 @@ add_executable(438-find-all-anagrams-in-a-string leetcode/editor/cn/438-find-all
 add_executable(125-valid-palindrome leetcode/editor/cn/125-valid-palindrome.cpp)
 add_executable(680-valid-palindrome-ii leetcode/editor/cn/680-valid-palindrome-ii.cpp)
 add_executable(5-longest-palindromic-substring leetcode/editor/cn/5-longest-palindromic-substring.cpp)
+add_executable(209-minimum-size-subarray-sum leetcode/editor/cn/209-minimum-size-subarray-sum.cpp)
+add_executable(19-remove-nth-node-from-end-of-list leetcode/editor/cn/19-remove-nth-node-from-end-of-list.cpp)
+add_executable(349-intersection-of-two-arrays leetcode/editor/cn/349-intersection-of-two-arrays.cpp)
