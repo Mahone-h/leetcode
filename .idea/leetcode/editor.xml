@@ -467,6 +467,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/215-kth-largest-element-in-an-array.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/215-kth-largest-element-in-an-array.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/215-kth-largest-element-in-an-array.cpp" />
+              <option name="questionId" value="215" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/22-generate-parentheses.cpp">
           <value>
             <LeetcodeEditor>
@@ -1272,6 +1281,15 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/84-largest-rectangle-in-histogram.cpp" />
               <option name="questionId" value="84" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/856-score-of-parentheses.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/856-score-of-parentheses.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/856-score-of-parentheses.cpp" />
+              <option name="questionId" value="886" />
             </LeetcodeEditor>
           </value>
         </entry>

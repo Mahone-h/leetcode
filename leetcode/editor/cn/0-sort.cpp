@@ -148,6 +148,9 @@ void heapSort(vector<int> &array) {
 int main()
 {
     vector<int> test = {5, 6, 8, 7, 9, 1, 4, 2, 3, 0};
-    mergeSort(test, 0, 10);
+    heapSort(test);
+    for (int &i:test) {
+        cout << i<<" ";
+    }
 
 }
