@@ -13,6 +13,9 @@ void BinaryBitset(int n) {
     cout << bitset<8>(n) << endl;
 }
 
+
+
+
 class A {
 public:
     static int aa;
@@ -20,15 +23,23 @@ public:
     virtual void foo() {
         cout << "A::foo() is called" << endl;
     }
+
+    virtual void print() = 0;
 };
-
+void A::print()
+{
+    cout << "I'am pureVirtualFunc" << endl;
+}
 int A::aa = 5;
-
 class B : public A {
 public:
-    void foo() {
+    void foo() override {
         cout << "B::foo() is called" << endl;
     }
+    void print(){
+        A::print();
+        cout << "I'am B" << endl;
+    };
 };
 
 class Point {
@@ -56,6 +67,41 @@ int Point::c = 100; //静态成员变量必须初始化
 
 void test(int *nums) {
     cout << sizeof(nums) << endl;
+}
+
+
+
+void fun(int* p)
+{
+    cout<< "int* p" <<endl;
+}
+void fun(int p)
+{
+    cout<< "int p" <<endl;
+}
+int function(int x)  {
+    int flag = 0;
+    while(x)  {
+        x = x&(x-1);
+        flag ++;
+    }
+    return flag ;
+}
+
+
+void shellSort(vector<int> &arr){
+    int len = arr.size();
+    for (int gap = len/2; gap >0; gap/=2) {
+        for (int i = gap; i < len; ++i) {
+            int j = i;
+            int cur = arr[i];
+            while (j - gap >= 0 && cur < arr[j - gap]) {
+                arr[j] = arr[j - gap];
+                j = j - gap;
+            }
+            arr[j] = cur;
+        }
+    }
 }
 
 int main() {
@@ -99,7 +145,17 @@ int main() {
     //    }
     //}
 
+    //fun((char*)nullptr);//语句1
+    //fun(nullptr);//语句2
+    //fun(NULL);//语句3
 
+    vector<int> tmp = {80, 30, 60, 40, 20, 10, 50, 70};
+    shellSort(tmp);
+    for (int &a:tmp) {
+        cout << a<<" ";
+    }
+
+    return 0;
 
     return 0;
 }

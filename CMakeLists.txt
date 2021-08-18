@@ -76,3 +76,4 @@ add_executable(5-longest-palindromic-substring leetcode/editor/cn/5-longest-pali
 add_executable(209-minimum-size-subarray-sum leetcode/editor/cn/209-minimum-size-subarray-sum.cpp)
 add_executable(19-remove-nth-node-from-end-of-list leetcode/editor/cn/19-remove-nth-node-from-end-of-list.cpp)
 add_executable(349-intersection-of-two-arrays leetcode/editor/cn/349-intersection-of-two-arrays.cpp)
+add_executable(0-sort leetcode/editor/cn/0-sort.cpp "leetcode/editor/cn/NC93 设计LRU缓存结构.cpp" leetcode/editor/cn/shared_ptr.cpp "leetcode/editor/cn/NC97 字符串出现次数的TopK问题.cpp" "leetcode/editor/cn/NC103 反转字符串.cpp" leetcode/editor/cn/实现string.cpp)
