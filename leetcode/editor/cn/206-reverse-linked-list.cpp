@@ -47,7 +47,7 @@ public:
         if (head== nullptr||head->next== nullptr){
             return head;
         }
-        ListNode *pre=reverseList(head->next);
+        ListNode *pre=reverseList(head->next);//找最后
         head->next->next=head;//pre 是头 要改变的是当前层的head->next 的
         head->next= nullptr;
         return pre;

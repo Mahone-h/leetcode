@@ -53,24 +53,23 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
+    int maxArea(vector<int> &height) {
         /**
          * 夹逼  两边向中间走
          */
-        int maxS = 0,minHeight,area;
-        for (int i = 0,j=height.size()-1; i < j; ) {
-            minHeight = height[i] < height[j] ? height[i++] : height[j--];
-            area = (j - i + 1) * minHeight;//为什么+1 上面已经操作过了
-            maxS = max(maxS, area);
+        int res = 0;
+        for (int i = 0, j = height.size() - 1; i < j;) {
+            res = height[i] < height[j] ?
+                  max(res, (j - i) * height[i++]) :
+                  max(res, (j - i) * height[j--]);
         }
-        return maxS;
+        return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    
+
 }

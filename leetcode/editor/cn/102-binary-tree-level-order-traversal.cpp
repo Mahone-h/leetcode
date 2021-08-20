@@ -60,12 +60,8 @@ public:
                 TreeNode *tmp = queue.front();
                 queue.pop();
                 level.emplace_back(tmp->val);
-                if (tmp->left!= nullptr) {
-                    queue.emplace(tmp->left);
-                }
-                if (tmp->right!= nullptr) {
-                    queue.emplace(tmp->right);
-                }
+                if (tmp->left)  queue.emplace(tmp->left);
+                if (tmp->right)  queue.emplace(tmp->right);
             }
             res.emplace_back(level);
         }

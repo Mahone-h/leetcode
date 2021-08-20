@@ -35,20 +35,42 @@ using namespace std;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    int findKthLargest(vector<int>& nums, int k) {
-        priority_queue<int, vector<int>, less<int>> maxHeap;
-        for (int x : nums)
-            maxHeap.push(x);
-        for (int _ = 0; _ < k - 1; _ ++)
-            maxHeap.pop();
-        return maxHeap.top();
+    int partition(vector<int> &array, int begin, int end) { //常规的快排划分，但这次是大数在左
+        int pivot = end, cur = begin;
+        for (int i = begin; i < end; ++i) {
+            if (array[i] > array[pivot]) { //从大到小
+                swap(array[cur], array[i]);
+                cur++;
+            }
+        }
+        swap(array[pivot], array[cur]);
+        return cur;
+    }
+
+    int quickSort(vector<int> &array, int begin, int end, int k) {
+        //if (begin >= end) {
+        //    return;
+        //}
+        int p = partition(array, begin, end);
+        if (p - begin + 1 == k) return array[p];
+        else if (p - begin + 1 > k) return quickSort(array, begin, p - 1, k);  //在左边
+        else return quickSort(array, p + 1, end, k - (p - begin + 1));         //在右边 但是需要减去左边更大的数字的数量
+    }
+
+    int findKthLargest(vector<int> &nums, int k) {
+        //priority_queue<int, vector<int>, less<int>> maxHeap;
+        //for (int x : nums)
+        //    maxHeap.push(x);
+        //for (int _ = 0; _ < k - 1; _ ++)
+        //    maxHeap.pop();
+        //return maxHeap.top();
+        return quickSort(nums, 0, nums.size() - 1, k);
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    
+
 }
