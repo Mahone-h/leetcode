@@ -411,6 +411,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/204-count-primes.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/204-count-primes.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/204-count-primes.cpp" />
+              <option name="questionId" value="204" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/205-isomorphic-strings.cpp">
           <value>
             <LeetcodeEditor>
@@ -492,6 +501,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/225-implement-stack-using-queues.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/225-implement-stack-using-queues.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/225-implement-stack-using-queues.cpp" />
+              <option name="questionId" value="225" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/226-invert-binary-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -513,6 +531,15 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/231-power-of-two.cpp" />
               <option name="questionId" value="231" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/232-implement-queue-using-stacks.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/232-implement-queue-using-stacks.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/232-implement-queue-using-stacks.cpp" />
+              <option name="questionId" value="232" />
             </LeetcodeEditor>
           </value>
         </entry>

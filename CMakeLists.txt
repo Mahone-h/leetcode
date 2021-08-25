@@ -76,5 +76,6 @@ add_executable(5-longest-palindromic-substring leetcode/editor/cn/5-longest-pali
 add_executable(209-minimum-size-subarray-sum leetcode/editor/cn/209-minimum-size-subarray-sum.cpp)
 add_executable(19-remove-nth-node-from-end-of-list leetcode/editor/cn/19-remove-nth-node-from-end-of-list.cpp)
 add_executable(349-intersection-of-two-arrays leetcode/editor/cn/349-intersection-of-two-arrays.cpp)
-add_executable(0-sort leetcode/editor/cn/0-sort.cpp)
+add_executable(0-sort leetcode/editor/cn/0-sort.cpp )
 add_executable(splitString leetcode/editor/cn/splitString.cpp)
+add_executable(204-count-primes leetcode/editor/cn/204-count-primes.cpp)

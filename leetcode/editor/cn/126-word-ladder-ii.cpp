@@ -122,6 +122,7 @@ public:
         dict.erase(endWord);
         unordered_set<string> begin{beginWord}, end{endWord};
         unordered_map<string, unordered_set<string>> next;
+        next.reserve()
         bool reversed = false, found = false;
         while (!begin.empty()) {
             unordered_set<string> q;
