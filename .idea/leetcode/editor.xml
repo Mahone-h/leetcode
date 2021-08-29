@@ -19,6 +19,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/1002-find-common-characters.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/1002-find-common-characters.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/1002-find-common-characters.cpp" />
+              <option name="questionId" value="1044" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/1014-best-sightseeing-pair.cpp">
           <value>
             <LeetcodeEditor>
@@ -40,6 +49,15 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/104-maximum-depth-of-binary-tree.cpp" />
               <option name="questionId" value="104" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/1047-remove-all-adjacent-duplicates-in-string.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/1047-remove-all-adjacent-duplicates-in-string.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/1047-remove-all-adjacent-duplicates-in-string.cpp" />
+              <option name="questionId" value="1128" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -259,6 +277,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/150-evaluate-reverse-polish-notation.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/150-evaluate-reverse-polish-notation.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/150-evaluate-reverse-polish-notation.cpp" />
+              <option name="questionId" value="150" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/151-reverse-words-in-a-string.cpp">
           <value>
             <LeetcodeEditor>
@@ -408,6 +435,15 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/200-number-of-islands.cpp" />
               <option name="questionId" value="200" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/202-happy-number.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/202-happy-number.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/202-happy-number.cpp" />
+              <option name="questionId" value="202" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -719,6 +755,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/347-top-k-frequent-elements.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/347-top-k-frequent-elements.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/347-top-k-frequent-elements.cpp" />
+              <option name="questionId" value="347" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/349-intersection-of-two-arrays.cpp">
           <value>
             <LeetcodeEditor>
@@ -765,6 +810,15 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/37-sudoku-solver.cpp" />
               <option name="questionId" value="37" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/383-ransom-note.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/383-ransom-note.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/383-ransom-note.cpp" />
+              <option name="questionId" value="383" />
             </LeetcodeEditor>
           </value>
         </entry>

@@ -39,11 +39,11 @@ public:
         for (auto iter = map.begin(); iter != map.end(); ++iter) {
             pri_que.emplace(*iter);
             if (pri_que.size() > k) {
-                pri_que.pop();
+                pri_que.pop(); //最小的出去。
             }
         }
         vector<vector<string>> res(k,vector<string>());
-        for (int i = k-1; i>=0; i--) {
+        for (int i = k-1; i>=0; i--) {   //倒序 最小的放最后
             res[i].emplace_back(pri_que.top().first);
             res[i].emplace_back(to_string(pri_que.top().second));
             pri_que.pop();

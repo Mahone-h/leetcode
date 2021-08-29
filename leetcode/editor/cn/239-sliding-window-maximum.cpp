@@ -66,7 +66,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    vector<int> maxSlidingWindow(vector<int> &nums, int k) {
         //暴力O(n*k)
         /*vector<int> res;
         for (int i = 0; i <= nums.size() - k; ++i) {
@@ -77,7 +77,9 @@ public:
             res.emplace_back(maxValue);
         }
         return res;*/
-        //优先队列  堆
+        /**
+         *  优先队列  堆
+         */
 //        priority_queue<pair<int,int>> q;
 //        for (int i = 0; i < k; ++i) {
 //            q.emplace(nums[i], i);
@@ -85,14 +87,18 @@ public:
 //        vector<int> res = {q.top().first};
 //        for (int i = k; i < nums.size(); ++i) {
 //            q.emplace(nums[i], i);
-              //不在窗口中的移除
+//              //不在窗口中的移除 k=3  0 1 2 3
 //            while (q.top().second <= i - k) {
 //                q.pop();
 //            }
 //            res.emplace_back(q.top().first);
 //        }
 //        return res;
-        //单调队列
+        /**
+         * 单调递减队列  队列头就是最大的
+         *
+         */
+
         if (nums.empty() || nums.size() < 2) {
             return nums;
         }
@@ -101,22 +107,25 @@ public:
         vector<int> ans;
         //先构建窗口
         for (int i = 0; i < k; ++i) {
-            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+            while (!dq.empty() && dq.back() < nums[i]) {
                 dq.pop_back();
             }
-            dq.emplace_back(i);
+            dq.emplace_back(nums[i]);
         }
-        ans.emplace_back(nums[dq.front()]);
+        ans.emplace_back(dq.front());
         for (int i = k; i < nums.size(); ++i) {
-            // 保证从大到小 如果前面数小则需要依次弹出，直至满足要求
-            if (!dq.empty() &&dq.front() <= i - k) {
+
+            // 滑动窗口移除i-k位置的元素
+            if (!dq.empty() && dq.front() == nums[i - k]) {
                 dq.pop_front();
             }
-            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+            // 保证从大到小 如果前面数小则需要依次弹出，直至满足要求
+            //滑动窗口前加入最后面的元素
+            while (!dq.empty() && dq.back() < nums[i]) {
                 dq.pop_back();
             }
-            dq.emplace_back(i);
-            ans.emplace_back(nums[dq.front()]);
+            dq.emplace_back(nums[i]);
+            ans.emplace_back(dq.front());
         }
         return ans;
     }
@@ -124,9 +133,8 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-    vector<int> vec={1,3,-1,-3,5,3,6,7};
+    vector<int> vec = {1, 3, -1, -3, 5, 3, 6, 7};
     s.maxSlidingWindow(vec, 3);
 }

@@ -47,7 +47,7 @@ public:
         vector<vector<int>> res;
         if (nums.size() < 4) return {};
         for (int i = 0; i < nums.size() - 3; ++i) {
-            //if (nums[i] > target) {  //[1,-2,-5,-4,-3,3,3,5]
+            //if (nums[i] > target) {  //[1,-2,-5,-4,-3,3,3,5]   -11
             //    return res;          //res  [[-5,-4,-3,1]] 1进来就直接没了。
             //}
             if (i > 0 && nums[i] == nums[i - 1]) continue;

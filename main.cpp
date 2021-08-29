@@ -149,11 +149,7 @@ int main() {
     //fun(nullptr);//语句2
     //fun(NULL);//语句3
 
-    vector<int> tmp = {80, 30, 60, 40, 20, 10, 50, 70};
-    shellSort(tmp);
-    for (int &a:tmp) {
-        cout << a<<" ";
-    }
+    cout << 5+'a'<< endl;
 
     return 0;
 

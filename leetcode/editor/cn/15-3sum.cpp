@@ -74,7 +74,10 @@ public:
         vector<vector<int>> res;
         if (nums.size() < 3) { return res; }
         int l, r;
+        // 找出a + b + c = 0
+        // a = nums[i], b = nums[left], c = nums[right]
         for (int i = 0; i < nums.size() - 2; i++) {
+            // 排序之后如果第一个元素已经大于零，那么不可能凑成三元组
             if (nums[i] > 0) {
                 break;
             }
