@@ -27,7 +27,7 @@ using namespace std;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    void reverseString(vector<char>& s) {
+    void reverseString(vector<char> &s) {
 
         //int left = 0, right = s.size() - 1;
         //while (left < right) {
@@ -38,8 +38,10 @@ public:
         //    right--;
         //}
         char tmp;
-        for (int i = 0,j=s.size()-1; i < j; ++i,--j) {
-            tmp=s[j]; s[j]=s[i]; s[i]=tmp;
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            tmp = s[j];
+            s[j] = s[i];
+            s[i] = tmp;
         }
 
     }
@@ -47,8 +49,7 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
-  
+
 }
