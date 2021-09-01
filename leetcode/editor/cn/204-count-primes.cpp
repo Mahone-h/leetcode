@@ -75,7 +75,7 @@ public:
                 count++;
                 //j 从 i * i 而不是从 i + i开始
                 //i*(2~i-1)时已经被筛去
-                if ((long long )i*i<n){
+                if ((long long) i * i < n) {
                     for (int j = i * i; j < n; j += i) {
                         //排除不是质数的数
                         signs[j] = 0;
@@ -89,9 +89,8 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-int main()
-{
+int main() {
     Solution s;
     s.countPrimes(10);
-    
+
 }

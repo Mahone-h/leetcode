@@ -1544,6 +1544,24 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 58 - I-fan-zhuan-dan-ci-shun-xu-lcof.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/剑指 Offer 58 - I-fan-zhuan-dan-ci-shun-xu-lcof.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 58 - I-fan-zhuan-dan-ci-shun-xu-lcof.cpp" />
+              <option name="questionId" value="100328" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 58 - II-zuo-xuan-zhuan-zi-fu-chuan-lcof.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/剑指 Offer 58 - II-zuo-xuan-zhuan-zi-fu-chuan-lcof.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/剑指 Offer 58 - II-zuo-xuan-zhuan-zi-fu-chuan-lcof.cpp" />
+              <option name="questionId" value="100330" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

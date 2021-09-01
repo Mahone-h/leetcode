@@ -6,6 +6,7 @@
 #include <bitset>
 #include "leetcode/editor/cn/include/headers.h"
 #include <ctime>
+#include <sstream>
 
 using namespace std;
 
@@ -105,54 +106,17 @@ void shellSort(vector<int> &arr){
 }
 
 int main() {
-    //import java.util.*;
-    //
-    //public class ForTest {
-    //public static int main(String[] args) {
-    //        Scanner sc = new Scanner(System.in);
-    //        String input = sc.nextLine();
-    //        if (!input.contains("o")) {
-    //            System.out.println(input.length());
-    //            return 0;
-    //        }
-    //        String[] split = input.split("o");
-    //        if(split.length==0){
-    //            Boolean isEven =input.length()%2 ==0;
-    //            if (isEven){
-    //                System.out.println(input.length());
-    //            }else {
-    //                System.out.println(input.length()-1);
-    //            }
-    //            return 0;
-    //        }
-    //        Boolean isEven = split.length % 2 == 0;
-    //        if (isEven) {
-    //            List<Integer> lenList = new ArrayList<>();
-    //            for (String str : split) {
-    //                lenList.add(str.length());
-    //            }
-    //            Collections.sort(lenList);
-    //            int length = 0;
-    //            for (int i = 1; i <= lenList.size() - 1; i++) {
-    //                length += lenList.get(i);
-    //            }
-    //            length += lenList.size() - 2;17
-    //            System.out.println(length);
-    //        } else {
-    //            System.out.println(input.length());
-    //        }
-    //        return 0;
-    //    }
-    //}
-
-    //fun((char*)nullptr);//语句1
-    //fun(nullptr);//语句2
-    //fun(NULL);//语句3
-
-    cout << 5+'a'<< endl;
-
-    return 0;
-
+    string s = "the sky is blue";
+    stringstream ss(s);
+    vector<string> tmp;
+    while (ss >> s) {
+        tmp.emplace_back(s);
+    }
+    string res;
+    for (int i = tmp.size()-1; i >=0 ; i--) {
+        res += tmp[i] + " ";
+    }
+    cout << res<< endl;
     return 0;
 }
 
