@@ -3,11 +3,11 @@ cmake_minimum_required(VERSION 3.17)
 project(algorithm)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fexec-charset=GBK")   #控制台中文
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-add_subdirectory(leetcode/editor/cn/include)
+#32位编译
 
-add_executable(algorithm main.cpp)
+add_executable(algorithm main.cpp )
 
 
 add_executable(206-reverse-linked-list leetcode/editor/cn/206-reverse-linked-list.cpp)

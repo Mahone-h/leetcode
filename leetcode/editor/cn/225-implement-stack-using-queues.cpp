@@ -62,6 +62,11 @@ using namespace std;
 //leetcode submit region begin(Prohibit modification and deletion)
 class MyStack {
     queue<int> q;
+    /**
+     * 一个队列在模拟栈弹出元素的时候只要
+     * 将队列头部的元素（除了最后一个元素外） 重新添加到队列尾部，
+     * 此时在去弹出元素就是栈的顺序了。
+     */
 public:
     /** Initialize your data structure here. */
     MyStack() {

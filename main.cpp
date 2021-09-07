@@ -10,113 +10,59 @@
 
 using namespace std;
 
+//输出二进制
 void BinaryBitset(int n) {
     cout << bitset<8>(n) << endl;
 }
 
+//class A {
+//public:
+//
+//    virtual void print(){
+//        cout << "aaaaaaa"<< endl;
+//    }
+//}; // 1+4 =补齐= 8
+//
+//class B : public A //如果还是虚继承，那么需要再加1个虚指针空间，最多就2个虚指//针空间。
+//{
+//public:
+//    B(){ print(); }
+//
+//    void print() override{
+//        cout << "bbbbbbbb"<< endl;
+//    }
+//
+//};
+//
+//int main() {
+//    A a;
+//    B b;
+//
+//    return 0;
+//}
 
 
+#include <iostream>
+
+using namespace std;
 
 class A {
 public:
-    static int aa;
-
-    virtual void foo() {
-        cout << "A::foo() is called" << endl;
-    }
-
-    virtual void print() = 0;
+    //A() { cout << "A()" << endl; }
+    A(int a) { cout << "A(int " << a << ")" << endl; }
 };
-void A::print()
-{
-    cout << "I'am pureVirtualFunc" << endl;
-}
-int A::aa = 5;
-class B : public A {
+
+class B {
 public:
-    void foo() override {
-        cout << "B::foo() is called" << endl;
+    B() : a(1) {
+        //b = A(2);
     }
-    void print(){
-        A::print();
-        cout << "I'am B" << endl;
-    };
+    A a;
+    A b;
 };
 
-class Point {
-public:
-    static void init() {
-        //a=0;//非静态成员引用 错误
-        //b=0;//非静态成员引用 错误
-        c = 0;
-    }
-
-    void output() {
-        init();
-        c = 200;
-    }
-
-private:
-    int a;
-    int b;
-    static int c;
-};
-
-int Point::c = 100; //静态成员变量必须初始化
-
-
-
-void test(int *nums) {
-    cout << sizeof(nums) << endl;
-}
-
-
-
-void fun(int* p)
-{
-    cout<< "int* p" <<endl;
-}
-void fun(int p)
-{
-    cout<< "int p" <<endl;
-}
-int function(int x)  {
-    int flag = 0;
-    while(x)  {
-        x = x&(x-1);
-        flag ++;
-    }
-    return flag ;
-}
-
-
-void shellSort(vector<int> &arr){
-    int len = arr.size();
-    for (int gap = len/2; gap >0; gap/=2) {
-        for (int i = gap; i < len; ++i) {
-            int j = i;
-            int cur = arr[i];
-            while (j - gap >= 0 && cur < arr[j - gap]) {
-                arr[j] = arr[j - gap];
-                j = j - gap;
-            }
-            arr[j] = cur;
-        }
-    }
-}
 
 int main() {
-    string s = "the sky is blue";
-    stringstream ss(s);
-    vector<string> tmp;
-    while (ss >> s) {
-        tmp.emplace_back(s);
-    }
-    string res;
-    for (int i = tmp.size()-1; i >=0 ; i--) {
-        res += tmp[i] + " ";
-    }
-    cout << res<< endl;
+    B b;
     return 0;
 }
-
