@@ -165,6 +165,15 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/124-binary-tree-maximum-path-sum.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/leetcode/editor/cn/doc/content/124-binary-tree-maximum-path-sum.md" />
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/124-binary-tree-maximum-path-sum.cpp" />
+              <option name="questionId" value="124" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/125-valid-palindrome.cpp">
           <value>
             <LeetcodeEditor>
