@@ -46,23 +46,10 @@ void BinaryBitset(int n) {
 
 using namespace std;
 
-class A {
-public:
-    //A() { cout << "A()" << endl; }
-    A(int a) { cout << "A(int " << a << ")" << endl; }
-};
 
-class B {
-public:
-    B() : a(1) {
-        //b = A(2);
-    }
-    A a;
-    A b;
-};
 
 
 int main() {
-    B b;
+    INT_MIN
     return 0;
 }
