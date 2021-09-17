@@ -48,8 +48,7 @@ using namespace std;
 
 
 
-
 int main() {
-    INT_MIN
+
     return 0;
 }
