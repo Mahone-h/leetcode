@@ -40,7 +40,9 @@ void BinaryBitset(int n) {
 //
 //    return 0;
 //}
-
+void caculate(string s){
+    printf("%s", s.c_str());
+}
 
 #include <iostream>
 
@@ -48,7 +50,12 @@ using namespace std;
 
 
 
+
+
 int main() {
+
+    // usage
+
 
     return 0;
 }
