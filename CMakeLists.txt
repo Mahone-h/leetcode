@@ -85,3 +85,5 @@ add_executable(347-top-k-frequent-elements leetcode/editor/cn/347-top-k-frequent
 add_executable(1002-find-common-characters leetcode/editor/cn/1002-find-common-characters.cpp)
 
 add_executable(189-rotate-array leetcode/editor/cn/189-rotate-array.cpp)
+add_executable(IP-black leetcode/editor/cn/IPblack.cpp)
+add_executable(NC113 leetcode/editor/cn/NC113_check_ip_addr.cpp)

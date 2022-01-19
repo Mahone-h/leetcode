@@ -27,6 +27,7 @@
 #include <stack>
 #include <queue>
 #include <numeric>
+#include <sstream>
 
 // c libraries
 #include <cctype>
