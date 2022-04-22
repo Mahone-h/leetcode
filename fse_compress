@@ -1,0 +1,149 @@
+U32 FSE_encode(seqDef *sequences,size_t nbSeq,codeDef *codeTables, U64 *dst)
+{
+    //设置outWordLL、outWordML、outWordOF分别记录三元组三个部分的编码结果
+    U16 outWordLL, outWordML, outWordOF;
+    U32 outWord, outWordLen;
+    U32 nbBitsOutLL, nbBitsOutOF, nbBitsOutML;
+    U16 llPrevStateVal, mlPrevStateVal, ofPrevStateVal;
+
+    //extWordLL、extWordML、extWordOF记录sequence部分的bits结果,将其综合到newWord中，再将newWord按位添加进dst数组中
+    U16 extWordLL, extWordML, extWordOF;
+    U32 extWord, extWordLen;
+
+    U64 newWord;
+    U32 newWordLen;
+
+    FILE *fp= fopen("fsetable.txt","w");
+    for(int i=0;i<2;i++)
+        fprintf(fp,"%d\t%x\t%x\t%x\n",i,sequences[i].litLength,sequences[i].matchLength,sequences[i].offset);
+    fprintf(fp,"\n");
+    for(int i=0;i<2;i++)
+        fprintf(fp,"%d\t%x\t%x\t%x\n",i,codeTables[i].LLCode,codeTables[i].MLCode,codeTables[i].OFCode);
+    fprintf(fp,"ll_TT\n");
+    for(int i=0;i<MaxLL+1;i++)
+    {
+        fprintf(fp,"%d\t%x\t%x\n",i,litlen_symbolTT[i].deltaNbBits,litlen_symbolTT[i].deltaFindState);
+    }
+    fprintf(fp,"ml_TT\n");
+    for(int i=0;i<MaxML+1;i++)
+    {
+        fprintf(fp,"%d\t%x\t%x\n",i,matlen_symbolTT[i].deltaNbBits,matlen_symbolTT[i].deltaFindState);
+    }
+    fprintf(fp,"of_TT\n");
+    for(int i=0;i<MaxOff+1;i++)
+    {
+        fprintf(fp,"%d\t%x\t%x\n",i,offset_symbolTT[i].deltaNbBits,offset_symbolTT[i].deltaFindState);
+    }
+    fclose(fp);
+
+    fp= fopen("fsestate.txt","w");
+    fprintf(fp,"ll\n");
+    for(int i=0;i<512;i++)
+    {
+        fprintf(fp,"%d\t%x\t%x\t%x\n",i,litlen_stateTable[i],matlen_stateTable[i],offset_stateTable[i]);
+    }
+    fclose(fp);
+
+    BYTE llCode = codeTables[nbSeq-1].LLCode;
+    BYTE ofCode = codeTables[nbSeq-1].OFCode;
+    BYTE mlCode = codeTables[nbSeq-1].MLCode;
+
+    //对第一个symbol进行编码,获取起始状态值
+    FSE_initEncode(offset_symbolTT[ofCode], offset_stateTable, &nbBitsOutOF, &ofPrevStateVal);
+    FSE_initEncode(matlen_symbolTT[mlCode], matlen_stateTable, &nbBitsOutML, &mlPrevStateVal);
+    FSE_initEncode(litlen_symbolTT[llCode], litlen_stateTable, &nbBitsOutLL, &llPrevStateVal);
+
+    U32 llBits = LL_bits[llCode];
+    U32 ofBits = ofCode;
+    U32 mlBits = ML_bits[mlCode];
+
+    //压缩输出的bit长度
+    extWordLL =  sequences[nbSeq-1].litLength & BIT_mask[llBits];
+    extWordML =  sequences[nbSeq-1].matchLength & BIT_mask[mlBits];
+    extWordOF =  sequences[nbSeq-1].offset & BIT_mask[ofBits];
+    printf("%x %d %x %d %x %d\n",extWordLL,llBits,extWordML,mlBits,extWordOF,ofBits);
+//    extWord = (extWordLL << (ofBits+mlBits)) ^ (extWordML << ofBits) ^ extWordOF;
+//    extWord = (extWordLL << (ofBits+mlBits)) ^ (extWordML << ofBits) ^ extWordOF;
+    extWord = (extWordOF << (llBits+mlBits)) ^ (extWordML << llBits) ^ extWordLL;
+    extWordLen = llBits + mlBits + ofBits;
+    printf("extWordLen:%d %x\n",extWordLen,extWord);
+    mem_write(dst, extWord, extWordLen);
+
+    size_t n;
+    for(n = nbSeq-2;n<nbSeq;n--)
+    {
+        // cout<<"n:"<<n<<endl;
+        llCode = codeTables[n].LLCode;
+        ofCode = codeTables[n].OFCode;
+        mlCode = codeTables[n].MLCode;
+
+        llBits = LL_bits[llCode];
+        ofBits = ofCode;
+        mlBits = ML_bits[mlCode];
+
+        FSE_encodeSymbol(offset_symbolTT[ofCode], offset_stateTable, &outWordOF, &nbBitsOutOF, &ofPrevStateVal);
+        //printf("symbol:%o, outWordOF:%x, nbBitsOutOF:%u, ofPrevStateVal:%x\n",ofCode, outWordOF, nbBitsOutOF, ofPrevStateVal);
+        FSE_encodeSymbol(matlen_symbolTT[mlCode], matlen_stateTable, &outWordML, &nbBitsOutML, &mlPrevStateVal);
+        //printf("symbol:%o, outWordOF:%x, nbBitsOutOF:%u, ofPrevStateVal:%x\n",mlCode, outWordML, nbBitsOutML, mlPrevStateVal);
+        FSE_encodeSymbol(litlen_symbolTT[llCode], litlen_stateTable, &outWordLL, &nbBitsOutLL, &llPrevStateVal);
+        //printf("symbol:%o, outWordOF:%x, nbBitsOutOF:%u, ofPrevStateVal:%x\n",llCode, outWordLL, nbBitsOutLL, llPrevStateVal);
+
+//        outWord = ((U32)outWordOF<<(nbBitsOutML+nbBitsOutLL)) ^ ((U32)outWordML << nbBitsOutLL) ^ (U32)outWordLL;
+        outWord = ((U32)outWordLL<<(nbBitsOutML+nbBitsOutOF)) ^ ((U32)outWordML << nbBitsOutOF) ^ (U32)outWordOF;
+        printf("%x %d %x %d %x %d\n",outWordLL,nbBitsOutLL,outWordML,nbBitsOutML,outWordOF,nbBitsOutOF);
+        outWordLen = nbBitsOutLL + nbBitsOutOF + nbBitsOutML;
+
+        extWordLL =  sequences[n].litLength & BIT_mask[llBits];
+        extWordML =  sequences[n].matchLength & BIT_mask[mlBits];
+        extWordOF =  sequences[n].offset & BIT_mask[ofBits];
+        printf("%x %d %x %d %x %d\n",extWordOF,ofBits,extWordML,mlBits,extWordLL,llBits);
+        extWord = (extWordOF << (llBits+mlBits)) ^ (extWordML << llBits) ^ extWordLL;
+        extWordLen = llBits + mlBits + ofBits;
+        printf("extWordLen:%d %x\n",extWordLen,extWord);
+        //dst[i++] = (outWord << extWordLen) ^ extWord;
+
+        newWord = ((U64)extWord << outWordLen) ^ (U64)outWord;
+//        newWord = ((U64)extWord << outWordLen) ^ (U64)outWord;
+        newWordLen = outWordLen + extWordLen;
+        printf("newWordLen:%d %x\n",newWordLen,newWord);
+        mem_write(dst, newWord, newWordLen);
+    }
+
+    printf("-- %x %x %x --\n",llPrevStateVal % (1 << ll_tableLog),ofPrevStateVal % (1 << off_tableLog),mlPrevStateVal % (1 << ml_tableLog));
+
+    mem_write(dst, mlPrevStateVal % (1 << ml_tableLog), ml_tableLog);
+    mem_write(dst, ofPrevStateVal % (1 << off_tableLog), off_tableLog);
+    mem_write(dst, llPrevStateVal % (1 << ll_tableLog), ll_tableLog);
+
+    memset(litlen_normalizedCounter,0,sizeof(short)*(MaxLL + 1));
+    memset(matlen_normalizedCounter,0,sizeof(short)*(MaxML + 1));
+    memset(offset_normalizedCounter,0,sizeof(short)*(MaxOff + 1));
+    memset(litlen_symbolTT,0,sizeof(FSE_symbolCompressionTransform)*(MaxLL + 1));
+    memset(matlen_symbolTT,0,sizeof(FSE_symbolCompressionTransform)*(MaxML + 1));
+    memset(offset_symbolTT,0,sizeof(FSE_symbolCompressionTransform)*(MaxOff + 1));
+    memset(litlen_stateTable,0,sizeof(U16)*(512));
+    memset(matlen_stateTable,0,sizeof(U16)*(512));
+    memset(offset_stateTable,0,sizeof(U16)*(512));
+
+    max_ll = MaxLL;
+    max_ml = MaxML;
+    max_off = MaxOff;
+
+    hw_tableLog=0;
+    ll_tableLog=0;
+    ml_tableLog=0;
+    off_tableLog=0;
+
+    size_t dstIndex_s = dstIndex;
+    //补
+    // printf("FSE cSize: %lu\n", dstIndex_s*8);
+    mem_write(dst, 1, 1);
+    mem_write(dst, 0, 8- r % 8);
+
+    for(int i=0;i<dstIndex_ss/8;i++)
+        printf("%x ", ((BYTE *)dst)[i]);
+
+    printf("\n");
+    cout << "dstIndex_ss " << dstIndex_ss << endl;
+    return dstIndex_ss/8;
+}
